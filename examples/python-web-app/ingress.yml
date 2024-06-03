@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-host-example
+spec:
+  rules:
+  - host: "dhiraj.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/demo"
+        backend:
+          service:
+            name: python-web-app-service
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/admin"
+        backend:
+          service:
+            name: python-web-app-service
+            port:
+              number: 80
